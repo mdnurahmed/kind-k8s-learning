@@ -1,0 +1,38 @@
+# Default values for echo-server
+# This is the base configuration that will be used for all environments
+
+name: echo-server
+environment: base
+
+# Number of replicas (will be overridden per environment)
+replicaCount: 1
+
+# Container image settings
+image:
+  repository: ealen/echo-server
+  tag: latest
+
+# Service configuration
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 80
+
+# Resource limits and requests
+resources:
+  requests:
+    cpu: 100m
+    memory: 100Mi
+  limits:
+    cpu: 100m
+    memory: 100Mi
+
+# Horizontal Pod Autoscaler configuration
+hpa:
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 70
+
+# Ingress configuration
+ingress:
+  host: echo.local

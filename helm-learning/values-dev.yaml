@@ -1,0 +1,16 @@
+# Development environment overrides
+# This file contains values specific to the dev environment
+
+environment: dev
+
+# Dev environment runs with 1 replica
+replicaCount: 2
+
+# Dev-specific ingress host
+ingress:
+  host: echo-dev.local.xxx
+
+# HPA settings for dev
+hpa:
+  minReplicas: 2
+  maxReplicas: 2

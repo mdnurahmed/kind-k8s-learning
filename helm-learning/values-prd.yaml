@@ -1,0 +1,25 @@
+# Production environment overrides
+# This file contains values specific to the prd environment
+
+environment: prd
+
+# Production runs with 2 replicas for high availability
+replicaCount: 2
+
+# Production-specific ingress host
+ingress:
+  host: echo-prd.local
+
+# HPA settings for production
+hpa:
+  minReplicas: 2
+  maxReplicas: 10
+
+# Production may need more resources
+resources:
+  requests:
+    cpu: 200m
+    memory: 200Mi
+  limits:
+    cpu: 500m
+    memory: 500Mi
